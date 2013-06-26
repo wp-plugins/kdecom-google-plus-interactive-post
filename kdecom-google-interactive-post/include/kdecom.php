@@ -10,13 +10,19 @@ class Kdecom {
     public function content_filter($content) {
 
 
-        $content .= '<p><button
+        $content .= '<script type="text/javascript">
+            (function() {
+                var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+                po.src = "https://apis.google.com/js/client:plusone.js";
+                var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+            })();
+        </script><p><button
   class="g-interactivepost"
   data-contenturl="' . get_permalink() . '"
   data-clientid="' . get_option('googleplus-client-id') . '"
   data-cookiepolicy="single_host_origin"
   data-prefilltext="' . get_the_title() . '"
-  data-calltoactionlabel="BROWSE"
+  data-calltoactionlabel="'.get_option('call-to-action').'"
   data-calltoactionurl="' . get_permalink() . '"
   >' . get_option('button-label') . '
    
@@ -40,13 +46,7 @@ class Kdecom {
             "SAVE_OFFER", "SEE_DEMO", "SELL", "SEND", "SIGN_IN", "SIGN_UP", "START", "STOP", "SUBSCRIBE", "TAKE_QUIZ", "TAKE_TEST", "TRY_IT", "UPVOTE", "USE", "VIEW", "VIEW_ITEM", "VIEW_MENU",
             "VIEW_PROFILE", "VISIT", "VOTE", "WANT", "WANT_TO_SEE", "WANT_TO_SEE_IT", "WATCH", "WATCH_TRAILER", "WISH", "WRITE");
         ?>  
-        <script type="text/javascript">
-            (function() {
-                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                po.src = 'https://apis.google.com/js/client:plusone.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-            })();
-        </script>
+        
         <div class="wrap">  
             <h2>Kdecom Google Interactive Post Options</h2>  
             <form method="post" action="options.php">  
